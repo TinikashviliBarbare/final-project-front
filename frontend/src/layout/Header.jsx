@@ -47,6 +47,12 @@ function Header() {
         <div className="search">
           <select>
             <option>All</option>
+            <option>Accessory</option>
+            <option>Audio</option>
+            <option>Leptop</option>
+            <option>Monitor</option>
+            <option>Smart Watch</option>
+            <option>Smartphone</option>
           </select>
 
           <input
