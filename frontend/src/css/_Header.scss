@@ -48,7 +48,7 @@
       border: 1px solid #FFFFFF;
       background: white;
       
-      select{
+      select {
         padding: 8px;
         width: 130px;
         background-color: #EDEDED;
@@ -59,9 +59,7 @@
         border: none;
       }
 
-      option {
-        border-radius: 5px;
-      }
+
 
       input {
         border: solid #EBEBEB;
@@ -92,18 +90,19 @@
 
     }
 
-    .headphones-icon {
-      height: 40px;
+    .headphone {
+      font-size: 30px;
       margin-left: 30px;
     }
 
-    .message-icon {
-      width: 40px;
+    .message {
+      font-size: 20px;
     }
 
-    .cart-icon {
-      width: 40px;
+    .cart {
+      font-size: 20px;
     }
+}
 
     .icons {
       display: flex;
@@ -150,4 +149,3 @@
       }
     }
   }
-}

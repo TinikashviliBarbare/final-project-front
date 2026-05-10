@@ -1,11 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,671;1,14..32,671&family=Montserrat:ital,wght@0,668;1,668&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,386;1,14..32,386&family=Montserrat:ital,wght@0,283;1,283&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@700&display=swap');
 
 .slide-show {
 
     font-family: "Inter", sans-serif;
-
-
     display: flex;
     justify-content: center;
     margin-top: 25px;
@@ -24,7 +21,7 @@
 
     h2 {
         font-size: 64px;
-        margin-top: 20px;
+        
     }
 
     .text-change {
@@ -33,8 +30,21 @@
         background: linear-gradient(to right, #6FB0FF 0%, #E891FE 100%);
         // -webkit-background-clip: text;
         // -webkit-text-fill-color: transparent;
-        
+        display: inline-block;
+        animation: smoothText 0.5s ease;
+
     }
+
+@keyframes smoothText {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
     .price {
     font-family: "Inter", sans-serif;
@@ -46,11 +56,17 @@
 
     .buy {
         width: 130px;
-        height: 60px;
+        height: 64px;
         background-color: rgba(0, 0, 0, 0);
         color: white;
         border-radius: 5px;
         border: 2px solid #6FB0FF;
-        margin-top: 20px;
+        font-size: 15px;
+        margin-top: 25px;
+        padding: 20px;
+
+        .button-arrow {
+            margin-left: 10px;
+        }
     }
 }

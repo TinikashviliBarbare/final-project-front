@@ -5,6 +5,10 @@ import serchIcon from '../assets/serch.png'
 import headphonesIcon from '../assets/headphones.png'
 import cartIcon from '../assets/cart.png'
 import messageIcon from '../assets/message.png'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faComments } from "@fortawesome/free-regular-svg-icons";
+import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
 
@@ -65,7 +69,7 @@ function Header() {
         </div>
 
         <div className="icons">
-          <img className="headphones-icon"  src={headphonesIcon} alt="" />
+          <FontAwesomeIcon className="headphone" icon={faHeadphones} />
           <div className="support">
             <div>
               <p>HOW CAN WE HELP?</p>
@@ -73,8 +77,8 @@ function Header() {
             </div>
           </div>
 
-          <img src={messageIcon} alt="" className="message-icon"/>
-          <img src={cartIcon} alt="" className="cart-icon" />
+          <FontAwesomeIcon className="message" icon={faComments} />
+           <FontAwesomeIcon className="cart" icon={faCartShopping} />
         </div>
       </div>
 
