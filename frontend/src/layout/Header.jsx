@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../css/style.scss";
-import logo from '../assets/logo2.webp'
-import serchIcon from '../assets/serch.png'
-import headphonesIcon from '../assets/headphones.png'
-import cartIcon from '../assets/cart.png'
-import messageIcon from '../assets/message.png'
+import logo from '../assets/logo2.webp';
+import serchIcon from '../assets/serch.png';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faComments } from "@fortawesome/free-regular-svg-icons";
 import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
+
+import { Link } from "react-router-dom";
 
 function Header() {
 
@@ -18,6 +18,23 @@ function Header() {
     const interval = setInterval(() => {
       setColor((prev) => (prev === "#1B6CB9" ? "purple" : "#1B6CB9"));
     }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
+  const messages = [
+    "Trade in your old device for up to $100 off. Trade ins",
+    "Get the latest smartphones with exclusive discounts.",
+    "Upgrade your tech today with special offers.",
+  ];
+
+  const [textIndex, setTextIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTextIndex((prev) => (prev + 1) % messages.length);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -33,36 +50,34 @@ function Header() {
         }}
       >
         <p>
-          Our mid-season sale is now on.
-          <span>Shop Phones</span>
-          <span>Shop Watches</span>
+          {messages[textIndex]}
         </p>
 
         <div className="top-links">
-          <a href="#">Help</a>
-          <a href="#">My Account</a>
+          <Link to="/Help">Help</Link>
+          <Link to="/myaccount">My Account</Link>
           <span>United Kingdom (GBP £, EN)</span>
         </div>
       </div>
 
       <div className="main-header">
-        <img src={logo} alt="" />
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
 
         <div className="search">
           <select>
             <option>All</option>
             <option>Accessory</option>
             <option>Audio</option>
-            <option>Leptop</option>
+            <option>Laptop</option>
             <option>Monitor</option>
             <option>Smart Watch</option>
             <option>Smartphone</option>
           </select>
 
-          <input
-            type="text"
-            placeholder="Search laptops..."
-          />
+          <input type="text" placeholder="Search laptops..." />
+
           <button className="serch-button">
             <img className="serch-icon" src={serchIcon} alt="" />
           </button>
@@ -70,6 +85,7 @@ function Header() {
 
         <div className="icons">
           <FontAwesomeIcon className="headphone" icon={faHeadphones} />
+
           <div className="support">
             <div>
               <p>HOW CAN WE HELP?</p>
@@ -78,22 +94,22 @@ function Header() {
           </div>
 
           <FontAwesomeIcon className="message" icon={faComments} />
-           <FontAwesomeIcon className="cart" icon={faCartShopping} />
+          <FontAwesomeIcon className="cart" icon={faCartShopping} />
         </div>
       </div>
 
       <nav className="nav">
         <ul>
-          <li>Home</li>
+          <Link to="/"><li>Home</li></Link>
           <li>Shop</li>
           <li>Blog</li>
-          <li>Phones</li>
-          <li>Brands</li>
+          <Link to="/Phones"><li>Phones</li></Link>
+          <Link to="/Brands"><li>Brands</li></Link>
           <li>Black Friday</li>
-          <li>About Us</li>
-          <li>Our Services</li>
-          <li>FAQs</li>
-          <li>Contact</li>
+          <Link to="/aboutus"><li>About Us</li></Link>
+          <Link to="/ourservices"><li>Our Services</li></Link>
+          <Link to="/Faqs"><li>FAQs</li></Link>
+          <Link to="/contact"><li>Contact</li></Link>
         </ul>
       </nav>
 

@@ -18,6 +18,8 @@
     justify-content: space-between;
     padding: 10px 350px;
     font-size: 14px;
+    background-color: color;
+    transition: "0.5s";
     
     span {
       text-decoration: underline;
@@ -28,12 +30,15 @@
       display: flex;
       gap: 15px;
 
-      a {
+      a , Link {
         color: white;
         text-decoration: none;
       }
+
+      
     }
   }
+
 
   .main-header {
     display: flex;

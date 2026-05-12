@@ -1,14 +1,22 @@
 import React from 'react'
 import Header from './layout/Header'
-import Footer from './layout/Footer'
 import Main from './layout/Main'
+import Footer from './layout/Footer'
+import Myaccount from './routes/Myaccount'
+
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <>
-    <Header />
-    <Main />
-    <Footer />
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/myaccount" element={<Myaccount />} />
+      </Routes>
+
+      <Footer />
     </>
   )
 }
