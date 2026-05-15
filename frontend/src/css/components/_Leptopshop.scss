@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.route-bar {
+    height: 40px;
+    border-bottom: solid rgba(0, 0, 0, 0.109) 1px ;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 18%;
+    font-size: 15px;
+
+    .home {
+    font-size: 15px;
+}
+
+}
+
+
+.rating {
+    margin-left: 18%;
+    margin-top: 30px;
+}
+
+.leptop-slide {
+    width: 660px;
+    height: 540px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-left: 18%;
+    margin-top: 50px;
+    box-shadow: 
+    0 0 15px 5px #aaaaaa5f;
+}
+
+.cover {
+    width: 630px;
+}

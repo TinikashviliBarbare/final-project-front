@@ -3,7 +3,6 @@ import "../css/style.scss";
 import img1 from "../assets/firstphone.png";
 import img2 from "../assets/phone2x.png";
 import img3 from "../assets/phone3.webp";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 

@@ -3,6 +3,7 @@ import Header from './layout/Header'
 import Main from './layout/Main'
 import Footer from './layout/Footer'
 import Myaccount from './routes/Myaccount'
+import Leptop from './components/Leptopshop'
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/myaccount" element={<Myaccount />} />
+        <Route path="/notebook 9pro" element={<Leptop />} />
       </Routes>
 
       <Footer />

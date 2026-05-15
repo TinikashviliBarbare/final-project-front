@@ -1,2 +1,6 @@
-@use './Header';
-@use './Main';
+@use './layout/Header';
+@use './layout/Main';
+@use './layout/Footer';
+
+
+@use './components/Leptopshop';
