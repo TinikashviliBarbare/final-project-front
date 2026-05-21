@@ -17,16 +17,16 @@
       align-items: flex-start;
       gap: 15px;
 
-      .icon {
+      .feature-icon {
         font-size: 28px;
       }
 
-      h4 {
+      .feature-title {
         font-size: 14px;
         margin-bottom: 6px;
       }
 
-      p {
+      .feature-text {
         color: #999;
         font-size: 14px;
       }
@@ -41,7 +41,7 @@
     background: linear-gradient(to right, #111, #0a0a0a);
 
     .footer-about {
-      .logo {
+      .footer-logo {
         border: 2px solid white;
         display: inline-block;
         padding: 12px 20px;
@@ -50,7 +50,7 @@
         margin-bottom: 30px;
       }
 
-      p {
+      .footer-about-text {
         color: #ccc;
         line-height: 2;
         max-width: 420px;
@@ -58,16 +58,16 @@
     }
 
     .footer-links {
-      h3 {
+      .footer-links-title {
         margin-bottom: 25px;
         font-size: 24px;
       }
 
-      ul {
+      .footer-links-list {
         list-style: none;
         padding: 0;
 
-        li {
+        .footer-links-item {
           margin-bottom: 18px;
           color: #ccc;
           cursor: pointer;
@@ -81,29 +81,22 @@
     }
 
     .footer-help {
-      h3 {
+      .footer-help-title {
         margin-bottom: 25px;
         font-size: 24px;
       }
 
-      p {
+      .footer-help-text {
         color: #ccc;
         line-height: 2;
         margin-bottom: 25px;
       }
 
-      a {
+      .footer-help-link {
         color: white;
         text-decoration: underline;
         display: inline-block;
         margin-bottom: 25px;
-      }
-
-      img {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        object-fit: cover;
       }
     }
   }
@@ -122,8 +115,13 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      color: #999;
-      font-size: 14px;
+
+      .bottom-text,
+      .bottom-divider,
+      .bottom-link {
+        color: #999;
+        font-size: 14px;
+      }
     }
 
     .bottom-right {
@@ -131,7 +129,11 @@
       align-items: center;
       gap: 20px;
 
-      .country {
+      .social-icon {
+        font-size: 18px;
+      }
+
+      .country-selector {
         border: 1px solid #333;
         padding: 10px 15px;
         border-radius: 6px;
@@ -143,10 +145,13 @@
   .footer-last {
     text-align: center;
     padding: 14px;
-    font-size: 14px;
-    color: #ccc;
-    font-style: italic;
     background: linear-gradient(to right, #1b1b1b, #0f2f4d);
+
+    .footer-last-text {
+      font-size: 14px;
+      color: #ccc;
+      font-style: italic;
+    }
   }
 }
 

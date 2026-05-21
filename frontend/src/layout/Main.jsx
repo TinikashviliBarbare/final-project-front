@@ -69,13 +69,13 @@ function Main() {
         }`}>
         <p className="text">{current.text}</p>
 
-        <h2>{current.baseText}</h2>
-        <h2> <span className="colored-text">{current.coloredText}</span>{current.secondBaseText}</h2>
-        <h2>{current.secondBaseText1}</h2>
+        <h1>{current.baseText}</h1>
+        <h1> <span className="colored-text">{current.coloredText}</span>{current.secondBaseText}</h1>
+        <h1>{current.secondBaseText1}</h1>
 
-        <h2 className="text-change">
+        <h1 className="text-change">
           {slideIndex === 0 ? text : " "}
-        </h2>
+        </h1>
 
         <p className="price">{current.price}</p>
 

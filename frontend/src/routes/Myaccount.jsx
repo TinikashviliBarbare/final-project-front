@@ -9,7 +9,7 @@ function Myaccount() {
       <div className="photo">
         <div className="left-part">
           <img className="headphone" src={headphones} alt="" />
-          <div className="create-account">
+          <div className="create-accountbtn">
             <h3>No accaount?</h3>
             <p>No sweat. Sign up for exclusive discounts.</p>
             <button className="add-acc">CREATE ACCOUNT</button>
@@ -18,20 +18,23 @@ function Myaccount() {
       </div>
       <div className="sign-in">
           <h2>Welcome Back</h2>
-          <p>Enter your email and password below for fast check out and exclusive discounts</p>
+          <p className="Reference">Enter your email and password below for fast check out and exclusive discounts</p>
           <button className="signin-shop">sign in with shop</button>
             <form action="">
-              <input type="text"
-              placeholder="Email"
-              id="email" />
-              <input 
-              type="password"
-              placeholder="Password"
-              id="pass" />
+
+      <div className="input-group">
+        <input required type="text" name="text" autoComplete="off" className="input" />
+        <label className="user-label">Email</label>
+      </div>
+      <div className="input-group">
+        <input required type="text" name="text" autoComplete="off" className="input" />
+        <label className="user-label">Password</label>
+      </div>
+              
             </form>
           <p className="passforgot">forgot password</p>
           <button className="submit">SIGN IN</button>
-          <p className="create">Create account</p>
+          <Link to='/Create Account'><p className="create">Create account</p></Link>
         </div>
     </div>
   )

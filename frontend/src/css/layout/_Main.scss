@@ -27,15 +27,18 @@
 }
 
 
-h2 {
+h1 {
   font-size: 64px;
 }
 
 .text-change {
   font-size: 64px;
   background: linear-gradient(to right, #6FB0FF 0%, #E891FE 100%);
-//    -webkit-background-clip: text; 
-//    -webkit-text-fill-color: transparent;
+
+  // -webkit-background-clip: text; 
+
+  // -webkit-text-fill-color: transparent;
+
   display: inline-block;
   animation: smoothText 0.5s ease;
 }

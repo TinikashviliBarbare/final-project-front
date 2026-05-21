@@ -241,7 +241,6 @@ function Header() {
               <div className="menu-image1">
               <Link to="/Notebook 9pro"><img src={notebook} alt="" /></Link>
                 <h2>Notebook 9 Pro</h2>
-
                 <p>
                   Experience style and productivity with the latest notebook.
                 </p>
@@ -249,7 +248,7 @@ function Header() {
 
 
               <div className="menu-image2">
-                <img src={phone4} alt="" />
+                <Link to="/Prime S24 Solar Ultra"><img src={phone4} alt="" /></Link>
 
                 <h2>Prime S24 Ultra</h2>
 
