@@ -11,6 +11,10 @@ import { Link } from "react-router-dom";
 
 function Header() {
 
+const user=JSON.parse(
+  localStorage.getItem("user")
+);
+
  const placeholders = [
     "serch laptops...",
     "serch phones...",
@@ -79,11 +83,31 @@ function Header() {
         <p>
           {messages[textIndex]}
         </p>
-        <div className="top-links">
-          <Link to="/Help">Help</Link>
-          <Link to="/myaccount">My Account</Link>
-          <span>United Kingdom (GBP £, EN)</span>
-        </div>
+<div className="top-links">
+
+  <Link to="/Help">
+    Help
+  </Link>
+
+  {user ? (
+
+    <Link to="/myaccount">
+      Account
+    </Link>
+
+  ) : (
+
+    <Link to="/Create Account">
+      Create Account
+    </Link>
+
+  )}
+
+  <span>
+    United Kingdom (GBP £, EN)
+  </span>
+
+</div>
 
       </div>
 

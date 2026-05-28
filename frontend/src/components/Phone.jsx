@@ -7,6 +7,7 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 import FoldableImage from "../assets/Gray.webp";
 import ClamShellImage from "../assets/Bronze.webp";
+import Jade from '../assets/jade.webp'
 
 function Leptopshop() {
 
@@ -70,6 +71,14 @@ function Leptopshop() {
               <div className="gray"></div>
             </button>
 
+            <button
+              className={selectedType === "clamshell"
+                  ? "option-btn active"
+                  : "option-btn"
+              }
+              onClick={() => changeLaptop("clamshell")}>
+              <div className="Jade"></div>
+            </button>
             <button
               className={selectedType === "clamshell"
                   ? "option-btn active"
