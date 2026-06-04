@@ -7,6 +7,7 @@ import Leptop from './components/Leptopshop'
 import Createaccount from './components/Createacc'
 import Phone from './components/Phone'
 import Account from './components/Account'
+import Contact from './routes/Contact'
 import './index.css'
 import { Routes, Route } from 'react-router-dom'
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/Create Account' element={<Createaccount />}/>
         <Route path='/Prime S24 Solar Ultra' element={<Phone />} />
         <Route path='/myaccount' element={<Account />} />
+        <Route path ='/contact' element = {<Contact />} />
       </Routes>
 
       <Footer />
