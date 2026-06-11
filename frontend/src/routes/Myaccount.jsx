@@ -1,141 +1,70 @@
-import React from "react";
-import { Link, Navigate } from "react-router-dom";
-import "../css/style.scss";
-import headphones from "../assets/headphones.webp";
+import React, { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 function Myaccount() {
+  const navigate = useNavigate();
 
-  const user = JSON.parse(
-    localStorage.getItem("user")
-  );
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/users/login",
+        { email, password }
+      );
+
+      localStorage.setItem("user", JSON.stringify(res.data));
+
+      navigate("/account");
+
+    } catch (err) {
+      alert(err.response?.data?.message || "Login failed");
+    }
+  };
 
   if (user) {
-
-    return <Navigate to="/account" />;
-
+    return (
+      <div>
+        <h2>You are already logged in</h2>
+        <button onClick={() => navigate("/account")}>
+          Go to Account
+        </button>
+      </div>
+    );
   }
 
   return (
+    <div>
+      <h2>Sign In</h2>
 
-    <div className="register-form">
+      <form onSubmit={handleLogin}>
+        <input
+          type="email"
+          placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-      <div className="photo">
+        <input
+          type="password"
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-        <div className="left-part">
+        <button type="submit">SIGN IN</button>
+      </form>
 
-          <img
-            className="headphone"
-            src={headphones}
-            alt=""
-          />
-
-          <div className="create-accountbtn">
-
-            <h3>No account?</h3>
-
-            <p>
-              No sweat. Sign up for exclusive discounts.
-            </p>
-
-            <Link to="/Create Account">
-
-              <button className="add-acc">
-
-                CREATE ACCOUNT
-
-              </button>
-
-            </Link>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div className="sign-in">
-
-        <h2>Welcome Back</h2>
-
-        <p className="Reference">
-
-          Enter your email and password below
-          for fast check out and exclusive discounts
-
-        </p>
-
-        <button className="signin-shop">
-
-          sign in with shop
-
-        </button>
-
-        <form>
-
-          <div className="input-group">
-
-            <input
-              required
-              type="email"
-              autoComplete="off"
-              className="input"
-            />
-
-            <label className="user-label">
-
-              Email
-
-            </label>
-
-          </div>
-
-          <div className="input-group">
-
-            <input
-              required
-              type="password"
-              autoComplete="off"
-              className="input"
-            />
-
-            <label className="user-label">
-
-              Password
-
-            </label>
-
-          </div>
-
-        </form>
-
-        <p className="passforgot">
-
-          forgot password
-
-        </p>
-
-        <button className="submit">
-
-          SIGN IN
-
-        </button>
-
-        <Link to="/Create Account">
-
-          <p className="create">
-
-            Create account
-
-          </p>
-
-        </Link>
-
-      </div>
-
+      <p>
+        No account?{" "}
+        <Link to="/createaccount">Create account</Link>
+      </p>
     </div>
-
   );
-
 }
 
 export default Myaccount;

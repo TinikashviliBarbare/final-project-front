@@ -1,0 +1,118 @@
+.account-page {
+  padding: 50px 340px;
+  font-family: Arial, sans-serif;
+  background: #F8F9FA;
+  min-height: 10vh;
+}
+
+
+.account-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+
+  h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #2d2d2d;
+  }
+
+  .actions {
+    display: flex;
+    gap: 15px;
+  }
+}
+
+/* BUTTONS */
+.btn {
+  padding: 10px 18px;
+  border: 1px solid #111;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  border-radius: 5px;
+  height: 50px;
+  width: 200px;
+  font-size: 15px;
+
+  &:hover {
+    
+    border: 2px solid black;
+  }
+}
+
+.secondary {
+  background: #fff;
+}
+
+.danger {
+  border-color: #000;
+  color: #000;
+
+  &:hover {
+    border: solid 2px black;
+  }
+}
+
+/* CONTENT */
+.account-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+/* LEFT BOX */
+.order-box {
+  flex: 1;
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #666;
+    font-size: 14px;
+  }
+}
+
+/* RIGHT BOX */
+.details-box {
+  width: 320px;
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .card {
+    border: 1px solid #FFFFFF;
+    padding: 20px;
+    border-radius: 6px;
+    background: #FFFFFF;
+
+    .name {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .email {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .edit-btn {
+      background: transparent;
+      border: none;
+      color: #2b6fff;
+      cursor: pointer;
+      font-size: 13px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

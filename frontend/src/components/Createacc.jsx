@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../css/style.scss";
+import { Link, useNavigate } from "react-router-dom";
+import headphones from "../assets/headphones.webp";
 
 function Createacc() {
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -12,152 +14,98 @@ function Createacc() {
   });
 
   const handleChange = (e) => {
-
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
-
   };
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
 
     try {
-
       const res = await axios.post(
         "http://localhost:5000/api/users/register",
         formData
       );
 
-      localStorage.setItem(
-        "user",
-        JSON.stringify(res.data)
-      );
+      localStorage.setItem("user", JSON.stringify(res.data));
 
-      alert("Account Created");
+      navigate("/account");
 
-      window.location.href =
-      "/myaccount";
-
+    } catch (err) {
+      alert(err.response?.data?.message || "Something went wrong");
     }
-
-    catch (err) {
-
-      console.log(err);
-
-      alert(
-        err.response?.data?.message
-      );
-
-    }
-
   };
 
   return (
+    <section className="register-page">
 
-    <div className="acc-div">
+      <div className="register-left">
+  
+        <div className="overlay">
+          <h2>Create account</h2>
+          <p>Register for exclusive member-only discounts and faster checkout.</p>
 
-      <div className="create-account">
+          <Link to="/login">
+            <button type="button">SIGN IN</button>
+          </Link>
+        </div>
+      </div>
 
-        <h2>Create account</h2>
-
-        <p className="register-info">
-          Register for exclusive member-only discounts and faster checkout.
-        </p>
+      <div className="register-right">
+        <h1>Create Account</h1>
 
         <form onSubmit={handleSubmit}>
 
-          <div className="input-group">
-
+          <div className="double-input">
             <input
-              required
               type="text"
               name="firstName"
-              autoComplete="off"
-              className="input"
-              value={formData.firstName}
+              placeholder="First Name"
               onChange={handleChange}
+              required
             />
 
-            <label className="user-label">
-              First Name
-            </label>
-
-          </div>
-
-          <div className="input-group">
-
             <input
-              required
               type="text"
               name="lastName"
-              autoComplete="off"
-              className="input"
-              value={formData.lastName}
+              placeholder="Last Name"
               onChange={handleChange}
-            />
-
-            <label className="user-label">
-              Last Name
-            </label>
-
-          </div>
-
-          <div className="input-group">
-
-            <input
               required
-              type="email"
-              name="email"
-              autoComplete="off"
-              className="input"
-              value={formData.email}
-              onChange={handleChange}
             />
-
-            <label className="user-label">
-              Email
-            </label>
-
           </div>
 
-          <div className="input-group">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            required
+          />
 
-            <input
-              required
-              type="password"
-              name="password"
-              autoComplete="off"
-              className="input"
-              value={formData.password}
-              onChange={handleChange}
-            />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+            required
+          />
 
-            <label className="user-label">
-              Password
-            </label>
-
-          </div>
-
-          <button
-            className="submit"
-            type="submit"
-          >
-
-            CREATE
-
+          <button type="submit">
+            create
           </button>
 
         </form>
 
+        <p>
+          Already have account?{" "}
+          <Link to="/login">Sign in</Link>
+        </p>
+
       </div>
-
-    </div>
-
+    </section>
   );
-
 }
 
 export default Createacc;
