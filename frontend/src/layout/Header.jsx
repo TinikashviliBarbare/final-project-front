@@ -91,7 +91,7 @@ const user=JSON.parse(
 
   {user ? (
 
-    <Link to="/myaccount">
+    <Link to="/account">
       Account
     </Link>
 

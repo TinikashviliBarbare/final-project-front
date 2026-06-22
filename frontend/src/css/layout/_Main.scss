@@ -1,3 +1,5 @@
+/* ================= SLIDER ================= */
+
 .slide-show {
   font-family: "Inter", sans-serif;
   display: flex;
@@ -10,6 +12,7 @@
   width: 63%;
   height: 570px;
   border-radius: 20px;
+  object-fit: cover;
 }
 
 .img-info {
@@ -26,19 +29,12 @@
   text-align: right;
 }
 
-
 h1 {
   font-size: 64px;
 }
 
 .text-change {
   font-size: 64px;
-  background: linear-gradient(to right, #6FB0FF 0%, #E891FE 100%);
-
-  // -webkit-background-clip: text; 
-
-  // -webkit-text-fill-color: transparent;
-
   display: inline-block;
   animation: smoothText 0.5s ease;
 }
@@ -60,7 +56,7 @@ h1 {
 }
 
 .colored-text {
-    text-shadow: 1px 1px 2px #27610A, 0 0 25px lime, 0 0 5px #143406;
+  text-shadow: 1px 1px 2px #27610a, 0 0 25px lime;
 }
 
 .buy {
@@ -70,10 +66,83 @@ h1 {
   color: white;
   border-radius: 5px;
   border: 2px solid #6fb0ff;
-  font-size: 15px;
-  display: flex ;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   margin-top: 20px;
+}
+
+/* ================= VIDEO SECTION ================= */
+
+.video-section {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  margin-top: 150px;
+  border-radius: 25px;
+}
+
+/* video full background */
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;;
+}
+
+/* dark overlay like in your screenshot */
+.video-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  color: white;
+  z-index: 2;
+  text-align: left;
+  max-width: 500px;
+}
+
+/* big title like Apple ads */
+.video-title {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+/* button like demo */
+.video-button {
+  padding: 12px 28px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+
+.bg-video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  transition: all 0.7s ease;
+}
+
+/* როცა scroll down */
+.bg-video.shrink {
+  width: 100%;
+  height: 80vh;
+  margin: 40px auto;
+  transform: scale(0.95);
+  display: block;
 }

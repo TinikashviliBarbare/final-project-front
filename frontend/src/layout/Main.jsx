@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "../css/style.scss";
+
 import img1 from "../assets/firstphone.png";
 import img2 from "../assets/phone2x.png";
 import img3 from "../assets/phone3.webp";
+import pixelVideo from "../assets/pixa-video.mp4";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function Main() {
   const slides = [
     {
-      text:"NOW IN OBSIDIAN",
+      text: "NOW IN OBSIDIAN",
       image: img1,
       price: "From $899",
       baseText: "Time for the",
@@ -30,13 +33,28 @@ function Main() {
     {
       image: img3,
       price: "From $1099",
-      baseText: "Experience ",
-      secondBaseText1: " ultimate",
-      button: "HSOP NOW",
+      baseText: "Experience",
+      secondBaseText1: "ultimate",
+      button: "SHOP NOW",
       style: "slide3",
       layout: "rightText",
     },
   ];
+
+    const [shrink, setShrink] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 150) {
+        setShrink(true);
+      } else {
+        setShrink(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const [slideIndex, setSlideIndex] = useState(0);
   const [text, setText] = useState("next level?");
@@ -51,7 +69,9 @@ function Main() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setText((prev) => (prev === "next level?" ? "upgrade?" : "next level?"));
+      setText((prev) =>
+        prev === "next level?" ? "upgrade?" : "next level?"
+      );
     }, 3000);
 
     return () => clearInterval(interval);
@@ -60,29 +80,55 @@ function Main() {
   const current = slides[slideIndex];
 
   return (
-    <div className={`slide-show ${current.style}`}>
-      <img className="first-img" src={current.image} alt="" />
+    <div>
+      {/* ================= HERO SLIDER ================= */}
+      <div className={`slide-show ${current.style}`}>
+        <img className="first-img" src={current.image} alt="" />
 
-      <div
-        className={`img-info ${
-          current.layout === "rightText" ? "right" : ""
-        }`}>
-        <p className="text">{current.text}</p>
+        <div
+          className={`img-info ${
+            current.layout === "rightText" ? "right" : ""
+          }`}
+        >
+          <p className="text">{current.text}</p>
 
-        <h1>{current.baseText}</h1>
-        <h1> <span className="colored-text">{current.coloredText}</span>{current.secondBaseText}</h1>
-        <h1>{current.secondBaseText1}</h1>
+          <h1>{current.baseText}</h1>
 
-        <h1 className="text-change">
-          {slideIndex === 0 ? text : " "}
-        </h1>
+          <h1>
+            <span className="colored-text">{current.coloredText}</span>{" "}
+            {current.secondBaseText}
+          </h1>
 
-        <p className="price">{current.price}</p>
+          <h1>{current.secondBaseText1}</h1>
 
-        <button className="buy">
-          <p>{current.button}</p>
-          <FontAwesomeIcon className="button-arrow" icon={faArrowRight} />
-        </button>
+          <h1 className="text-change">
+            {slideIndex === 0 ? text : ""}
+          </h1>
+
+          <p className="price">{current.price}</p>
+
+          <button className="buy">
+            <p>{current.button}</p>
+            <FontAwesomeIcon icon={faArrowRight} />
+          </button>
+        </div>
+      </div>
+
+      {/* ================= VIDEO SECTION (scroll down) ================= */}
+      <div className="video-section">
+      <video
+        className={`bg-video ${shrink ? "shrink" : ""}`}
+        src={pixelVideo}
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+
+      <div className="video-overlay">
+        <h1 className="video-title">Shot on Pixa 9 Pro</h1>
+        <button className="video-button">SHOW ME</button>
+      </div>
       </div>
     </div>
   );

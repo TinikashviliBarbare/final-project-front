@@ -6,10 +6,9 @@ export function LoaderProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // simulate initial app loading
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // შეგიძლია შეცვალო დრო
+    }, 2000); 
 
     return () => clearTimeout(timer);
   }, []);

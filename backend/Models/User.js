@@ -24,7 +24,6 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
   },
-
   {
     timestamps: true,
   }
@@ -33,7 +32,6 @@ const userSchema = new mongoose.Schema(
 userSchema.pre(
   "save",
   async function () {
-
     if (
       !this.isModified(
         "password"

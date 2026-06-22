@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import headphones from "../assets/headphones.webp";
 
 function Createacc() {
   const navigate = useNavigate();
@@ -10,13 +9,13 @@ function Createacc() {
     firstName: "",
     lastName: "",
     email: "",
-    password: ""
+    password: "",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -26,85 +25,38 @@ function Createacc() {
     try {
       const res = await axios.post(
         "http://localhost:5000/api/users/register",
-        formData
+        {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          password: formData.password,
+        }
       );
 
       localStorage.setItem("user", JSON.stringify(res.data));
-
       navigate("/account");
-
     } catch (err) {
+      console.log(err.response?.data);
       alert(err.response?.data?.message || "Something went wrong");
     }
   };
 
   return (
-    <section className="register-page">
+    <div className="registration">
+    <div className="bck">
+    <form className="regform"  onSubmit={handleSubmit}>
+      <h3 className="acctext">Create account</h3>
+      <input className="name" name="firstName" placeholder="First Name" onChange={handleChange} />
+      <input className="name" name="lastName" placeholder="Last Name" onChange={handleChange} />
+      <input className="name" name="email" placeholder="Email" onChange={handleChange} />
+      <input className="name" type="password" name="password" placeholder="Password" onChange={handleChange} />
 
-      <div className="register-left">
-  
-        <div className="overlay">
-          <h2>Create account</h2>
-          <p>Register for exclusive member-only discounts and faster checkout.</p>
+      <button className="submit" type="submit">Create</button>
 
-          <Link to="/login">
-            <button type="button">SIGN IN</button>
-          </Link>
-        </div>
-      </div>
-
-      <div className="register-right">
-        <h1>Create Account</h1>
-
-        <form onSubmit={handleSubmit}>
-
-          <div className="double-input">
-            <input
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              onChange={handleChange}
-              required
-            />
-
-            <input
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            onChange={handleChange}
-            required
-          />
-
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={handleChange}
-            required
-          />
-
-          <button type="submit">
-            create
-          </button>
-
-        </form>
-
-        <p>
-          Already have account?{" "}
-          <Link to="/login">Sign in</Link>
-        </p>
-
-      </div>
-    </section>
+      <Link to="/login">Go to login</Link>
+    </form>
+    </div>
+    </div>
   );
 }
 
